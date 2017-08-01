@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                                 i.setType("message/rfc822");
                                 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
                                 i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-                                i.putExtra(Intent.EXTRA_TEXT   , String.valueOf(al));
+                                i.putExtra(Intent.EXTRA_TEXT   , al.get(0) + "\n" + al.get(1)  + "\n" + al.get(2));
                                 try {
                                     startActivity(Intent.createChooser(i, "Send mail..."));
                                 } catch (android.content.ActivityNotFoundException ex) {
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                             } else if (which == 1) {
                                 Intent smsIntent = new Intent(Intent.ACTION_SEND);
                                 smsIntent.setType("text/plain");
-                                smsIntent.putExtra(Intent.EXTRA_TEXT, String.valueOf(al));
+                                smsIntent.putExtra(Intent.EXTRA_TEXT, al.get(0) + "\n" + al.get(1) + "\n" + al.get(2));
                                 try {
                                     startActivity(Intent.createChooser(smsIntent, "Send sms..."));
                                     finish();
